@@ -1,0 +1,24 @@
+[general]
+name=ProjectList
+description=Unlimited history of opened QGIS projects, with search, sorting and favourites.
+description[da]=Ubegrænset historik over åbnede QGIS-projekter, med søgning, sortering og favoritter.
+version=1.1
+changelog=1.1 - Danish/English user interface that follows the QGIS language setting (dates follow the language too).
+about=ProjectList keeps a complete history of every QGIS project you have opened or saved, without the length limit of QGIS' built-in "Open Recent" list. Search and sort the list, pin favourites at the top, and get a clear notice when a project file has been moved or deleted, with the option to locate it again.
+about[da]=ProjectList gemmer en komplet historik over alle QGIS-projekter, du har åbnet eller gemt, uden den længdebegrænsning, der er i QGIS' indbyggede "Åbn seneste"-liste. Søg og sortér i listen, fastgør favoritter øverst, og få en tydelig besked, hvis en projektfil er flyttet eller slettet - med mulighed for at finde den igen.
+tags=project,history,recent,favorites,productivity
+tags[da]=projekt,historik,seneste,favoritter,produktivitet
+category=Plugins
+qgisMinimumVersion=3.0
+qgisMaximumVersion=4.99
+author=qLER ApS
+email=support@qler.dk
+license=GPL-2.0-or-later
+hasProcessingProvider=no
+icon=icon.png
+experimental=True
+deprecated=False
+server=False
+homepage=
+tracker=
+repository=
