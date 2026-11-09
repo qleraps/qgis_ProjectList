@@ -5,11 +5,12 @@ kontekstmenu (pin, åbn, vis i Stifinder, find fil igen, fjern)."""
 import os
 import re
 import subprocess
+import sys
 from datetime import datetime
 
 from qgis.core import Qgis
-from qgis.PyQt.QtCore import Qt, pyqtSignal
-from qgis.PyQt.QtGui import QColor
+from qgis.PyQt.QtCore import Qt, QUrl, pyqtSignal
+from qgis.PyQt.QtGui import QColor, QDesktopServices
 from qgis.PyQt.QtWidgets import (
     QDockWidget, QWidget, QVBoxLayout, QHBoxLayout, QLineEdit, QLabel,
     QComboBox, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView,
@@ -227,7 +228,13 @@ class ProjectListDockWidget(QDockWidget):
         self.refresh_table()
 
     def reveal_in_explorer(self, path):
-        subprocess.Popen(["explorer", "/select,", os.path.normpath(path)])
+        norm = os.path.normpath(path)
+        if sys.platform == "win32":
+            # Markerer filen i Stifinder.
+            subprocess.Popen(["explorer", "/select,", norm])
+        else:
+            # Linux/macOS: åbn den omgivende mappe i standard-filhåndtering.
+            QDesktopServices.openUrl(QUrl.fromLocalFile(os.path.dirname(norm)))
 
     def relink(self, old_path):
         start_dir = os.path.dirname(old_path)
